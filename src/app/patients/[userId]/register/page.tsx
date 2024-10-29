@@ -11,7 +11,7 @@ interface props {
 }
 
 const Register: FC<props> = async ({ params }) => {
-  const user = await getUser(userId)
+  const user = await getUser(params.userId)
   return (
     <div>
       <section className="remove-scrollbar container my-auto">
