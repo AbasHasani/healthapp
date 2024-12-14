@@ -1,11 +1,15 @@
 import PatientForm from "@/components/forms/patientForm";
+import PassedkeyModal from "@/components/passedkeyModal";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home({searchParams}:any) {
+  const {admin} = await searchParams;
+  const isAdmin = admin ? true : false;
   return (
     <div className="flex h-screen max-h-screen">
+      {isAdmin && <PassedkeyModal />}
       {/* Todo: OTP verificatino */}
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[496px]">

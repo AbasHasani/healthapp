@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import CustomFormField from "../customFormField";
 import SubmitButton from "../submitButton";
 import { useState } from "react";
-import { userFormValidation } from "@/lib/validation";
+import { UserFormValidation } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 import { createUser } from "@/lib/actinos/patient.actions";
 
@@ -39,8 +39,8 @@ const PatientForm = () => {
   const router = useRouter();
 
   // 1. Define your form.
-  const form = useForm<z.infer<typeof userFormValidation>>({
-    resolver: zodResolver(userFormValidation),
+  const form = useForm<z.infer<typeof UserFormValidation>>({
+    resolver: zodResolver(UserFormValidation),
     defaultValues: {
       name: "",
       email: "",
@@ -53,7 +53,7 @@ const PatientForm = () => {
     name,
     email,
     phone,
-  }: z.infer<typeof userFormValidation>) => {
+  }: z.infer<typeof UserFormValidation>) => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     setIsLoading(true);
